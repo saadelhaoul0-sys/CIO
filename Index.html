@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIO | Dissolvant de Points Noirs Pro - 219 DH</title>
+    <style>
+        /* Styles de base (CSS) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff; /* Bleu professionnel pour CIO */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 650px; /* Taille moyenne */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Galerie d'images */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les vignettes */
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .gallery img:hover {
+            border-color: #007bff;
+            transform: scale(1.02);
+        }
+        #main-image-container {
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        #main-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        /* Détails du produit */
+        .price {
+            font-size: 36px;
+            color: #007bff;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .description {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0 15px;
+            line-height: 1.6;
+            border-left: 3px solid #007bff;
+            padding-left: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles du Panier et Formulaire (inchangés) */
+        #product-page { display: block; }
+        #cart-page { display: none; padding-top: 20px; }
+        #cart-page h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-bottom: 15px; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-price { font-weight: bold; color: #007bff; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .payment-info { background-color: #e6f7ff; color: #004085; border: 1px solid #b8daff; padding: 15px; border-radius: 4px; margin-top: 20px; text-align: center; }
+        .whatsapp-btn { background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin-top: 20px; width: 100%; display: block; transition: background-color 0.3s; }
+        .whatsapp-btn:hover { background-color: #1FAF59; }
+    </style>
+</head>
+<body>
+
+    <header>
+        Boutique CIO
+    </header>
+
+    <div class="container">
+
+        <section id="product-page">
+            <h1>Dissolvant de Points Noirs Pro</h1>
+
+            <div id="main-image-container">
+                <img id="main-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLUqCYrz_3oS4I2Ba2oQAoX7j-CwZfEINyZKb3KQ_QPDw6lyuo1RL_r2-0kKbQE7iGE2hDPaHSIs4qJoCH0DBH1o5E1GNmby79Gw2H1vMbEzWhO2p4bLpWQxw-bTwpOn3rGQJGxBH0Vc8AkpQdsFGpwwIdkVD632MiJ81ld7mmn1wT3aj4pTyjqBYkZzE/s1293/IMG_0671.jpeg" alt="Dissolvant de Points Noirs à Aspiration">
+            </div>
+
+            <div class="gallery">
+                <img onclick="changeMainImage(this)" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLUqCYrz_3oS4I2Ba2oQAoX7j-CwZfEINyZKb3KQ_QPDw6lyuo1RL_r2-0kKbQE7iGE2hDPaHSIs4qJoCH0DBH1o5E1GNmby79Gw2H1vMbEzWhO2p4bLpWQxw-bTwpOn3rGQJGxBH0Vc8AkpQdsFGpwwIdkVD632MiJ81ld7mmn1wT3aj4pTyjqBYkZzE/s320/IMG_0671.jpeg" alt="Vue 1">
+                <img onclick="changeMainImage(this)" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3sEA-fOpJpKimipI5a8GB3DPvF7TpP8LngZCGulOmx76DkHwGow1kDsd_-Smc0_d2vtPAS8XYUKT52kHSnTWB-v8QmflcqHcUGc39Ofi2jFyJyypKT986XBgyOekvtDSKnC7eyVEwdzKH2_pFtE7JlRbgbqdWFhyphenhyphenMzyCalfvRUWk8E_YuY-noXIIWeQ/s320/IMG_0672.jpeg" alt="Vue 2">
+                <img onclick="changeMainImage(this)" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoaP6d9T6MWMKOSPFDXV3Q6iURhTeYOhXbZemAcvp7qhpTpjbBh0co3wcKqSLL3cWGsrjfwqbTELURqpiGJ65brtTBxGGuVsbYa0qROTTxkwke7RgvDHmsoX2_D4JKQIqY9wXXUVgSW4HMUylhxLmVJFD2B6xuaN4kcoiwmyHq_nuzlLkAsRzqEigXLX8/s320/IMG_0673.jpeg" alt="Vue 3">
+            </div>
+
+            <p class="description">
+                **Description :** Dissolvant de points noirs aspiration sous vide USB Rechargeable nettoyeur de pores du visage tache acné bouton tête noire extracteur profond Kit de soins de la peau. Obtenez une peau nette et lisse sans effort !
+            </p>
+
+            <div class="price">219 DH</div>
+
+            <button class="btn-primary" onclick="addToCart()">
+                AJOUTER AU PANIER
+            </button>
+        </section>
+
+        <section id="cart-page">
+            <h2>🛒 Finaliser votre Commande</h2>
+
+            <div class="cart-item">
+                <div class="cart-item-details">
+                    **Dissolvant de Points Noirs Pro** (x1)
+                </div>
+                <div class="cart-item-price">
+                    219 DH
+                </div>
+            </div>
+
+            <h3>Vos Informations de Livraison</h3>
+            <div class="form-group">
+                <label for="fullName">Nom et Prénom :</label>
+                <input type="text" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numéro de Téléphone (pour contact) :</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse de Livraison Complète (Ville, Rue, Code Postal) :</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adresse E-mail (pour confirmation) :</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="payment-info">
+                **Mode de Paiement :** Paiement simplifié via WhatsApp. Vous serez redirigé(e) vers un agent pour confirmer l'adresse de livraison et le mode de paiement (espèces ou virement).
+            </div>
+
+            <button class="whatsapp-btn" onclick="sendToWhatsApp()">
+                PASSER LA COMMANDE VIA WHATSAPP
+            </button>
+        </section>
+
+    </div>
+
+    <script>
+        // Variables globales pour le produit et le numéro WhatsApp
+        const PRODUCT_NAME = "Dissolvant de Points Noirs Pro";
+        const PRODUCT_PRICE = 219; // DH
+        const WHATSAPP_NUMBER = "212665290743"; // Votre numéro en format international
+        const YOUR_EMAIL = "saadelhaoul0@gmail.com"; // Votre email de réception (pour le suivi)
+
+        // Fonction pour changer l'image principale
+        function changeMainImage(thumbnail) {
+            document.getElementById('main-image').src = thumbnail.src;
+        }
+
+        // Fonction pour afficher la page Panier et masquer la page Produit
+        function addToCart() {
+            document.getElementById('product-page').style.display = 'none';
+            document.getElementById('cart-page').style.display = 'block';
+            window.scrollTo(0, 0); // Remonter en haut de page
+        }
+
+        // Fonction pour générer le lien WhatsApp avec les données de la commande
+        function sendToWhatsApp() {
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const email = document.getElementById('email').value;
+            
+            // Vérification simple des champs
+            if (!fullName || !phone || !address || !email) {
+                alert("Veuillez remplir tous les champs obligatoires avant de commander.");
+                return;
+            }
+
+            // Création du message de commande
+            const message = `*COMMANDE CIO*
+
+Bonjour, je souhaite commander :
+- Produit: ${PRODUCT_NAME} (x1)
+- Prix total: ${PRODUCT_PRICE} DH
+
+*Mes coordonnées :*
+- Nom: ${fullName}
+- Téléphone: ${phone}
+- Adresse: ${address}
+- Email: ${email}
+- (Pour vous: Réception confirmation à ${YOUR_EMAIL})
+
+Veuillez confirmer ma commande. Merci.`;
+
+            // Encodage du message pour l'URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // LIEN CORRIGÉ POUR L'OUVERTURE DIRECTE DE L'APPLICATION (iOS/Android)
+            const whatsappLink = `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+
+            // Redirection
+            window.open(whatsappLink, '_blank');
+            
+            alert("Votre commande a été transmise ! L'application WhatsApp devrait s'ouvrir directement pour finaliser l'achat.");
+        }
+    </script>
+
+</body>
+</html>
