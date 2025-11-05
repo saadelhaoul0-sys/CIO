@@ -1,355 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIO | Dissolvant de points noirs</title>
-    <style>
-        /* CSS de base */
-        :root {
-            --primary-color: #38a169; /* Vert WhatsApp */
-            --secondary-color: #2d3748;
-            --light-bg: #f7fafc;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-bg);
-            color: var(--secondary-color);
-        }
-
-        header {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-
-        .cart-icon {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        /* Styles du Produit */
-        .product-detail, .checkout-section {
-            display: flex;
-            flex-wrap: wrap;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .gallery {
-            flex: 1;
-            min-width: 300px;
-            margin-right: 30px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .info {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .price {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        .add-to-cart {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
-
-        .add-to-cart:hover {
-            background-color: #2c8558;
-        }
-
-        /* Styles du Panier */
-        #cart-view {
-            display: none; /* Masqué par défaut */
-            padding-top: 20px;
-        }
-
-        #cart-items {
-            list-style: none;
-            padding: 0;
-        }
-
-        #cart-items li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* Styles de la Caisse (Checkout) */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .whatsapp-button {
-            display: block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maquette - Messages (DÉMO)</title>
+<style>
+  :root{
+    --bg:#1f2830;
+    --card:#2b3337;
+    --muted:#9aa4a8;
+    --accent:#d88b1a;
+    --white:#ffffff;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+  .phone{
+    width:390px;
+    max-width:100%;
+    margin:24px auto;
+    border-radius:28px;
+    background:linear-gradient(180deg,#2a3135 0%, #202628 100%);
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    padding:18px;
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .status{
+    display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted);
+    margin-bottom:8px;
+  }
+  header{font-size:20px;text-align:center;margin:6px 0 18px;color:rgba(255,255,255,0.95);}
+  .card{
+    background:var(--card);
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:14px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+  .date{color:var(--muted);font-size:13px;margin-bottom:8px;}
+  .message-title{font-size:20px;margin:0 0 8px;line-height:1.15;}
+  .message-body{color:var(--muted);font-size:15px;line-height:1.4;}
+  .watermark{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:18%;
+    font-size:120px;
+    color:rgba(255,255,255,0.06);
+    font-weight:700;
+    letter-spacing:6px;
+    pointer-events:none;
+    user-select:none;
+  }
+  /* small responsive */
+  @media (max-width:420px){
+    .phone{width:360px;padding:16px;border-radius:22px}
+    .watermark{font-size:96px;bottom:12%}
+  }
+</style>
 </head>
 <body>
-
-    <header>
-        <h1>CIO</h1>
-        <a href="#" class="cart-icon" id="view-cart-btn">🛒 Panier (<span id="cart-count">0</span>)</a>
-    </header>
-
-    <div class="container">
-
-        <div id="product-view">
-            <h2>Dissolvant de points noirs</h2>
-            <div class="product-detail">
-                <div class="gallery">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLUqCYrz_3oS4I2Ba2oQAoX7j-CwZfEINyZKb3KQ_QPDw6lyuo1RL_r2-0kKbQE7iGE2hDPaHSIs4qJoCH0DBH1o5E1GNmby79Gw2H1vMbEzWhO2p4bLpWQxw-bTwpOn3rGQJGxBH0Vc8AkpQdsFGpwwIdkVD632MiJ81ld7mmn1wT3aj4pTyjqBYkZzE/s320/IMG_0671.jpeg" alt="Produit principal">
-                    </div>
-                <div class="info">
-                    <h3>Dissolvant de points noirs aspiration sous vide USB Rechargeable</h3>
-                    <p>Nettoyeur de pores du visage tache acné bouton tête noire extracteur profond Kit de soins de la peau</p>
-                    <div class="price">219 DH</div>
-                    <button class="add-to-cart" data-id="1" data-name="Dissolvant Points Noirs" data-price="219">
-                        🛒 Ajouter au panier
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div id="cart-view">
-            <h2>Votre Panier</h2>
-            <ul id="cart-items">
-                </ul>
-
-            <div style="text-align: right; font-size: 1.5em; margin-top: 20px;">
-                Total: <span id="cart-total">0 DH</span>
-            </div>
-
-            <button class="add-to-cart" id="checkout-btn" style="margin-top: 20px;">
-                Passer à la Caisse
-            </button>
-            
-            <div id="checkout-details" class="checkout-section" style="display: none; margin-top: 30px;">
-                <h3>Vos Coordonnées</h3>
-                <form id="customer-form" style="width: 100%;">
-                    <div class="form-group">
-                        <label for="nom">Nom Complet:</label>
-                        <input type="text" id="nom" name="nom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel">Téléphone (pour WhatsApp):</label>
-                        <input type="tel" id="tel" name="tel" required value="0665290743">
-                    </div>
-                    <div class="form-group">
-                        <label for="adresse">Adresse de Livraison:</label>
-                        <input type="text" id="adresse" name="adresse" required>
-                    </div>
-                    <button type="submit" class="add-to-cart" style="background-color: #2d3748;">
-                        Confirmer les Coordonnées
-                    </button>
-                </form>
-            </div>
-
-            <div id="whatsapp-pay-section" style="display: none; text-align: center; margin-top: 30px;">
-                <h3>Étape Finale : Paiement</h3>
-                <p>Veuillez cliquer sur le bouton ci-dessous pour finaliser votre commande via WhatsApp. Votre commande sera envoyée à <span style="font-weight: bold;">0665290743</span>.</p>
-                <a href="#" id="whatsapp-link" class="whatsapp-button" target="_blank">
-                    Payer via WhatsApp 💬
-                </a>
-            </div>
-        </div>
-
+  <div class="phone" role="img" aria-label="Maquette de messages (DEMO)">
+    <div class="status">
+      <div>18:56</div>
+      <div style="font-size:12px;color:var(--muted)">▲ ▯ ▯ ▯</div>
     </div>
 
-    <script>
-        // JavaScript pour la gestion du panier (utilise le localStorage)
+    <header>Messages</header>
 
-        let cart = JSON.parse(localStorage.getItem('cio_cart')) || [];
-        const productName = "Dissolvant Points Noirs (219 DH)";
-        const phoneNumber = "0665290743";
-        const adminEmail = "saadelhaoul0@gmail.com";
+    <!-- Seul dernier message -->
+    <div class="card" aria-hidden="false">
+      <div class="date">05.11.2025 16:38</div>
+      <h3 class="message-title">Réception des fonds 50.00 MAD par paiement électronique (Réussi!)</h3>
+      <div class="message-body">Dépôt d'un montant de 50.00 MAD réalisé avec succès par paiement électronique.</div>
+    </div>
 
-        // Mettre à jour le compteur du panier dans l'en-tête
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = cart.length;
-        }
-
-        // Ajouter le produit au panier
-        document.querySelector('.add-to-cart').addEventListener('click', function() {
-            // Puisque nous n'avons qu'un seul produit, on le gère simplement
-            const item = {
-                id: this.dataset.id,
-                name: this.dataset.name,
-                price: parseFloat(this.dataset.price),
-                quantity: 1 // Simplification : toujours 1 produit pour cet exemple
-            };
-            
-            // Vérifier si le produit est déjà dans le panier (pour éviter les doublons pour ce produit unique)
-            const existingItem = cart.find(i => i.id === item.id);
-            if (!existingItem) {
-                cart.push(item);
-                localStorage.setItem('cio_cart', JSON.stringify(cart));
-                updateCartCount();
-                alert(`${item.name} a été ajouté au panier !`);
-            } else {
-                 alert(`${item.name} est déjà dans le panier. Veuillez procéder à la caisse.`);
-            }
-
-            // Rediriger immédiatement vers la vue du panier après l'ajout
-            showCartView();
-        });
-
-        // Afficher la vue du panier
-        function showCartView() {
-            document.getElementById('product-view').style.display = 'none';
-            document.getElementById('cart-view').style.display = 'block';
-            renderCart();
-        }
-
-        // Afficher les détails du panier
-        function renderCart() {
-            const cartItemsList = document.getElementById('cart-items');
-            const cartTotalElement = document.getElementById('cart-total');
-            cartItemsList.innerHTML = '';
-            let total = 0;
-
-            if (cart.length === 0) {
-                cartItemsList.innerHTML = '<li>Votre panier est vide.</li>';
-                document.getElementById('checkout-btn').style.display = 'none';
-                document.getElementById('checkout-details').style.display = 'none';
-                document.getElementById('whatsapp-pay-section').style.display = 'none';
-            } else {
-                cart.forEach(item => {
-                    const li = document.createElement('li');
-                    const itemPrice = item.price * item.quantity;
-                    li.textContent = `${item.name} x ${item.quantity} - ${itemPrice.toFixed(2)} DH`;
-                    cartItemsList.appendChild(li);
-                    total += itemPrice;
-                });
-                document.getElementById('checkout-btn').style.display = 'block';
-            }
-            
-            cartTotalElement.textContent = `${total.toFixed(2)} DH`;
-            updateCartCount();
-        }
-
-        // Bouton "Voir Panier" dans l'en-tête
-        document.getElementById('view-cart-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            showCartView();
-        });
-
-        // Bouton "Passer à la Caisse" (affiche le formulaire client)
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            document.getElementById('checkout-btn').style.display = 'none';
-            document.getElementById('checkout-details').style.display = 'flex';
-        });
-
-        // Soumission du formulaire client (Affiche le bouton WhatsApp)
-        document.getElementById('customer-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nom = document.getElementById('nom').value;
-            const tel = document.getElementById('tel').value;
-            const adresse = document.getElementById('adresse').value;
-            const total = document.getElementById('cart-total').textContent;
-            
-            // Masquer le formulaire et afficher la section WhatsApp
-            document.getElementById('checkout-details').style.display = 'none';
-            document.getElementById('whatsapp-pay-section').style.display = 'block';
-
-            // --- Construction du message WhatsApp ---
-            let message = `*Nouvelle Commande CIO*\n\n`;
-            message += `*Produit :* ${productName}\n`;
-            message += `*Total :* ${total}\n\n`;
-            message += `*Détails Client :*\n`;
-            message += `Nom : ${nom}\n`;
-            message += `Tél : ${tel}\n`;
-            message += `Adresse : ${adresse}\n\n`;
-            message += `Veuillez confirmer cette commande.`;
-
-            // Encodage du message pour l'URL WhatsApp
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-            // Mettre à jour le lien WhatsApp
-            document.getElementById('whatsapp-link').href = whatsappUrl;
-
-            // *****************************************************************
-            // NOTE IMPORTANTE : Simulation d'envoi d'e-mail
-            // En réalité, vous auriez besoin d'un serveur pour cela.
-            // Nous affichons ici une alerte d'information.
-            // *****************************************************************
-            console.log(`SIMULATION E-MAIL : Les données de commande seront envoyées à : ${adminEmail}`);
-            alert(`Coordonnées confirmées. L'e-mail de confirmation (simulé) sera envoyé à ${adminEmail}. Veuillez maintenant cliquer sur "Payer via WhatsApp" pour finaliser.`);
-        });
-
-        // Initialisation de la vue (pour afficher le compteur si le panier n'est pas vide)
-        updateCartCount();
-    </script>
-
+    <!-- gros watermark "DÉMO" -->
+    <div class="watermark">DÉMO</div>
+  </div>
 </body>
 </html>
